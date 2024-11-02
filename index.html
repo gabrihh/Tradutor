@@ -28,7 +28,7 @@ function translate(string, lang) {
 }
 
 function sendMessage(message) {
-    document.getElementById('result').textContent(`'${message[0]}' traduzido para '${translate(message[0], message[1])}'.`);
+    document.getElementById('result').textContent = `'${message[0]}' traduzido para '${translate(message[0], message[1])}'.`;
 }
 
 sendMessage(["Hello!", "pt-br"]);
