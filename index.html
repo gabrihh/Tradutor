@@ -8,16 +8,23 @@
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-function translate($string, $lang){
-$.ajax({
-url: "translate.php",
-type: "POST",
-data: {"string": $string, "lang": $lang},
-success: function(response){
-alert(response);
+const TRANSLATIONS = {
+    "Hello!": "Olá!",
+    "Welcome!": "Bem-vindo(a)!"
+};
+
+function translate(string, lang) {
+    if (lang === "eng") {
+        return Object.keys(TRANSLATIONS).find(key => TRANSLATIONS[key] === string);
+    } else {
+        return TRANSLATIONS[string];
+    }
 }
-});
+
+function sendMessage(message) {
+    alert(`'${message[0]}' traduzido para '${translate(message[0], message[1])}'.`);
 }
-translate("Hello!", "pt-br");
+
+sendMessage(["Hello!", "pt-br"]);
 </script>
 </html>
