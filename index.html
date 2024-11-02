@@ -8,12 +8,16 @@
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
+function translate($string, $lang){
 $.ajax({
 url: "translate.php",
 type: "POST",
+data: {"string": $string, "lang": $lang},
 success: function(response){
 alert(response);
 }
 });
+}
+translate("Hello!", "pt-br");
 </script>
 </html>
