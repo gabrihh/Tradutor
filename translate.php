@@ -1,4 +1,5 @@
 <?php
+if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["string"]) && isset($_POST["lang"])){
 const TRANSLATIONS = [
 "Hello!" => "Olá!",
 "Welcome!" => "Bem-vindo(a)!"
@@ -17,6 +18,7 @@ function sendMessage(Array $message){
 echo "'" . $message[0] . "' traduzido para '" .  translate($message[0], $message[1]) . "'.";
 }
 sendMessage(
-["Hello!", "pt-br"]
+[$_POST["string"], $_POST["lang"]]
 );
+}
 ?>
